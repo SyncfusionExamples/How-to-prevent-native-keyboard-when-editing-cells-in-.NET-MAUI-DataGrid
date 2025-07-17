@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:local="clr-namespace:DataGrid"
+             x:Class="DataGrid.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:OrderInfoRepository x:Name="viewModel" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <syncfusion:SfDataGrid
+                x:Name="dataGrid"
+                AllowEditing="True"
+                SelectionUnit="Cell"
+                SelectionMode="Single"
+                ItemsSource="{Binding OrderInfoCollection}">
+
+            <syncfusion:SfDataGrid.Columns>
+                <syncfusion:DataGridNumericColumn HeaderText="Order ID" Format="0"
+                    MappingName="OrderID" Width="150"/>
+                <syncfusion:DataGridTextColumn HeaderText="Customer ID"
+                    MappingName="CustomerID"
+                    Width="150" />
+                <syncfusion:DataGridTextColumn HeaderText="Ship Country"
+                    MappingName="ShipCountry"
+                    Width="150" />
+            </syncfusion:SfDataGrid.Columns>
+
+        </syncfusion:SfDataGrid>
+    </ContentPage.Content>
+</ContentPage>
